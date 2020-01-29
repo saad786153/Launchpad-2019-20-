@@ -1,0 +1,27 @@
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,i,j,k=0,x;
+    cin>>n;
+    x=(n+1)/2;
+    for(i=1;i<=n;i++)
+    {
+        i<=x ? k=0: k+=2;
+        for(j=1;j<=n;j++)
+        {
+
+            if(j<=x+1-i+k || j>=i+x-1-k)
+            {
+                cout<<"*    ";
+            }
+            else
+            {
+                cout<<"     ";
+            }
+
+        }
+        cout<<endl;
+    }
+}
