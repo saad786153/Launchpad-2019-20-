@@ -1,0 +1,43 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+    int num,ans;
+    bool isArmstrong(int);
+    cout<<"enter a num:";
+    cin>>num;
+    ans=isArmstrong(num);
+    cout<<ans;
+}
+bool isArmstrong(int a)
+{
+    int x=a;
+    int sum=0;
+    int countDigits(int);
+    int digit=0;
+    digit=countDigits(a);
+
+    while(x!=0)
+            {
+                sum=sum+pow(x%10,digit);
+                x=x/10;
+            }
+        if(sum==a)
+            return true;
+        else
+            return false;
+
+
+
+}
+int countDigits(int b)
+{
+    int i=10,count=0;
+    while(b%i != b)
+    {
+        count++;
+        i=i*10;
+    }
+    return (count+1);
+}
