@@ -1,0 +1,67 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a[1000],b[1000],c[1000],i,n,m,s,carry=0,big;
+    cin>>n;
+    for(i=0;i<n;i++)
+        cin>>a[i];
+    cin>>m;
+    for(i=0;i<m;i++)
+        cin>>b[i];
+    big=n>m?n:m;
+
+    for(i=big-1;i>=abs(n-m);i--)
+    {
+        if(n>=m)
+        {
+            s=carry+a[i]+b[i-(n-m)];
+            if(s>9)
+            {
+            c[i]=s%10;
+            s=s/10;
+            carry=s;
+             }
+            else
+            {
+            c[i]=s;
+            carry=0;
+            }
+        }
+
+        else
+        {
+            s=carry+b[i]+a[i-(m-n)];
+             if(s>9)
+             {
+            c[i]=s%10;
+            s=s/10;
+            carry=s;
+             }
+            else
+            {
+            c[i]=s;
+            carry=0;
+             }
+        }
+
+
+
+    }
+    while(i>=0)
+    {
+        if(n>m)
+            c[i]=a[i];
+        else
+            c[i]=b[i];
+        i--;
+    }
+    if(carry>0)
+		cout<<carry<<", ";
+    for(i=0;i<big;i++)
+        cout<<c[i]<<", ";
+    cout<<" END";
+
+
+}
