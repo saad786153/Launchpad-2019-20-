@@ -1,0 +1,37 @@
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,i,x,num,sumeven,sumodd;
+    cin>>n;
+    for(i=1;i<=n;i++)
+    {
+        sumeven=0;sumodd=0;
+        cin>>num;
+        while(num!=0)
+        {
+            x=num%10;
+            if(x%2==0)
+                sumeven+=x;
+            else
+                sumodd+=x;
+            num=num/10;
+
+        }
+
+        if(sumeven%4==0 || sumodd%3==0)
+           {
+               cout<<"Yes";cout<<endl;
+           }
+        else
+        {
+            cout<<"No";cout<<endl;
+        }
+
+    }
+
+
+
+
+}
