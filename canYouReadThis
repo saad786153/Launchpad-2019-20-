@@ -1,0 +1,23 @@
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int i;
+    string str;
+    cin>>str;
+    for(i=0;str[i]!='\0';i++)
+    {
+        do{
+            cout<<str[i];
+            i++;
+        }while(str[i]>=97 && str[i]<=122);
+        i--;
+        cout<<endl;
+    }
+
+
+
+
+}
