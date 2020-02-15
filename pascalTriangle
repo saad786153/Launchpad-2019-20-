@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+int fact(int);
+int ncr(int,int);
+int main()
+{
+    int i,j,k,y,n,NCR;
+    cout<<"enter";
+    cin>>n;
+    for(i=1;i<=n;i++)
+        {
+            k=1;
+            y=0;
+            for(j=1;j<=2*n-1;j++)
+
+                    if(j>=n+1-i && j<=i+n-1 && k)
+                        {
+                            NCR=ncr(i-1,y);
+                            cout<<NCR<<" ";
+                            k=0;
+                            y++;
+                        }
+                    else
+                      {
+                          cout<<"  ";
+                            k=1;
+                      }
+            cout<<endl;
+    }
+}
+int ncr(int x1,int y1)
+{
+    int N=fact(x1);
+    int R=fact(y1);
+    int NR=fact(x1-y1);
+    return N/(R*NR);
+}
+int fact(int a)
+{
+    int f=1,b;
+    for(b=1;b<=a;b++)
+    {
+        f=f*b;
+    }
+    return f;
+}
+
+
