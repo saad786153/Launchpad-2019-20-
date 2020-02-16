@@ -1,0 +1,29 @@
+
+#include<iostream>
+using namespace std;
+void replace(string str,int i);
+int main()
+{
+    int i,n;
+    cin>>n;
+    string str;
+    while(n>0)
+    {
+        cin>>str;
+        i=0;
+        replace(str,i);
+        cout<<endl;
+        n--;
+    }
+}
+void replace(string str,int i)
+{
+    if(str[i]=='\0');
+        //return;
+    else if(str[i]=='p' && str[i+1]=='i')
+        {cout<<"3.14";
+        replace(str,i+2);}
+    else //if(str[i]!='i')
+        {cout<<str[i];
+    replace(str,i+1);}
+}
