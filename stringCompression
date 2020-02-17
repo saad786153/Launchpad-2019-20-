@@ -1,0 +1,31 @@
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int i,c;
+    string s;
+    getline(cin,s);
+    for(i=0;s[i];i++)
+    {
+        c=1;
+        while(s[i]==s[i+1]){
+                c++;
+                i++;
+        }
+
+        cout<<s[i]<<c;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
