@@ -1,0 +1,25 @@
+
+#include<iostream>
+using namespace std;
+string move(string str,string sx,int sidx);
+int main()
+{
+    int sidx=0;
+    string str,sx;
+    cin>>str;
+    cout<<move(str,sx,sidx);
+}
+
+string move(string str,string sx,int sidx)
+{
+    if(str[sidx]!='\0')
+    {
+        if(str[sidx]=='x')
+            sx=sx+str[sidx];
+        else
+            cout<<str[sidx];
+        return(move(str,sx,sidx+1));
+    }
+    return sx;
+
+}
