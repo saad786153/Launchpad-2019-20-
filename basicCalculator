@@ -1,0 +1,38 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    char ch;
+    int a,b;
+    while(1)
+    {
+    	cin>>ch;
+    	switch(ch)
+        {
+            case '+': 	cin>>a>>b;
+						cout<<a+b<<endl;;
+                        break;
+            case '-': 	cin>>a>>b;
+						cout<<a-b<<endl;;
+                        break;
+            case '*': 	cin>>a>>b;
+						cout<<a*b<<endl;;
+                        break;
+            case '/': 	cin>>a>>b;
+						cout<<a/b<<endl;;
+                        break;
+            case '%': 	cin>>a>>b;
+						cout<<a%b<<endl;;
+                        break;
+            case 'X':   exit(0);
+                        break;
+            case 'x':   exit(0);
+                        break;
+            default:    cout<<"Invalid operation. Try again."<<endl;
+        }
+    }
+
+
+
+}
