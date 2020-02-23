@@ -1,0 +1,26 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,i,y,x,sum;
+    long long int j;
+    cin>>n;
+    for(y=1;y<=n;y++)
+    {
+       cin>>j;i=0;sum=0;
+       while(j!=0)
+       {
+           x=j%10;
+
+           sum=sum+x*pow(2,i);
+           j=j/10;
+           i++;
+       }
+       cout<<sum<<endl;
+
+    }
+
+
+
+}
