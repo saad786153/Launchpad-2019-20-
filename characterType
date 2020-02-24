@@ -1,0 +1,26 @@
+
+#include<iostream>
+using namespace std;
+int isFound(char ch,string str);
+int main()
+{
+    char ch;
+    string l,u;
+    cin>>ch;
+    l="abcdefghijklmnopqrstuvwxyz";
+    u="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if(isFound(ch,l))
+        cout<<"L";
+    else if(isFound(ch,u))
+        cout<<"U";
+    else
+        cout<<"I";
+}
+int isFound(char ch,string str)
+{
+    int i;
+    for(i=0;str[i]!='\0';i++)
+        if(ch==str[i])
+            return 1;
+    return 0;
+}
