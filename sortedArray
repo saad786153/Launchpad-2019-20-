@@ -1,0 +1,35 @@
+
+#include<iostream>
+bool isSorted(int arr[],int sidx,int n);
+using namespace std;
+int main()
+{
+    int arr[10],i,n,sidx=0;
+    cin>>n;
+    for(i=0;i<n;i++)
+        cin>>arr[i];
+    if(isSorted(arr,sidx,n))
+        cout<<"true";
+    else
+        cout<<"false";;
+}
+
+bool isSorted(int arr[],int sidx,int n)
+{
+
+    if(sidx==n-1)
+    {
+        //cout<<"$";
+       return true;
+    }
+
+    if(arr[sidx]>arr[sidx+1])
+    {
+       // cout<<"$$";
+        return false;
+
+    }
+    isSorted(arr,sidx+1,n);
+
+
+}
