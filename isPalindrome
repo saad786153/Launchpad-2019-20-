@@ -1,0 +1,27 @@
+
+
+#include<iostream>
+using namespace std;
+bool isPalindrome(int arr[],int sidx ,int eidx);
+int main()
+{
+    int n,i,arr[10],sidx=0,eidx;
+    cin>>n;
+    eidx=n-1;
+    for(i=0;i<n;i++)
+        cin>>arr[i];
+    if(isPalindrome(arr,sidx,eidx))
+        cout<<"true";
+    else
+        cout<<"false";
+}
+bool isPalindrome(int arr[],int sidx ,int eidx)
+{
+    if(sidx==eidx || sidx>eidx)
+        return true;
+    if(arr[sidx]!=arr[eidx])
+        return false;
+    return(isPalindrome(arr,sidx+1,eidx-1));
+
+
+}
