@@ -1,0 +1,39 @@
+
+#include<iostream>
+using namespace std;
+char maxFrequency(string s);
+int count(char ch,string s);
+int main()
+{
+    string s;
+    cin>>s;
+    cout<<maxFrequency(s);
+}
+int count(char ch,string s)
+{
+    int i,c1=0;
+    for(i=0;s[i]!='\0';i++)
+        if(ch==s[i])
+            c1++;
+    return c1;
+}
+
+char maxFrequency(string s)
+{
+    int i,c2,maxc=0;
+    char ch;
+    for(i=0;s[i]!='\0';i++)
+    {
+        c2=count(s[i],s);
+        if(c2>maxc)
+        {
+            maxc=c2;
+            ch=s[i];
+        }
+
+
+    }
+
+
+    return (ch);
+}
