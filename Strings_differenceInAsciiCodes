@@ -1,0 +1,22 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int i,len,k;
+    string str,ch;
+    cin>>str;
+    len=str.length();
+    for(i=0;i<len-1;i++)
+    {
+
+        k=str[i+1]-str[i];
+        cout<<str[i]<<k;
+       // j=j+2;
+
+    }
+    cout<<str[str.size()-1];
+
+
+
+}
