@@ -1,0 +1,33 @@
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int arr[10][10],i,j,row,col,sr,er,sc,ec;    //startrow=sr,endrow=er,startcol=sc,endcol=ec
+    cin>>row>>col;
+    sc=0; er=row-1; sc=0; ec=col-1;
+    for(i=0;i<=row-1;i++)
+        for(j=0;j<=col-1;j++)
+            arr[i][j]=10*i+j+1;
+
+    while(sr<=er && sc<=ec)
+    {
+        for(i=sr;i<=er;i++)
+            cout<<arr[i][sc]<<", ";
+        sc++;
+
+        for(i=sc;i<=ec;i++)
+            cout<<arr[er][i]<<", ";
+        er--;
+
+        for(i=er;i>=sr;i--)
+            cout<<arr[i][ec]<<", ";
+        ec--;
+
+        for(i=ec;i>=sc;i--)
+            cout<<arr[sr][i]<<", ";
+        sr++;
+
+    }
+    cout<<"END";
+}
