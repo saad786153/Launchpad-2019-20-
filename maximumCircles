@@ -1,0 +1,60 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int minCircles1(vector<pair<int,int> > circles, int N)
+{
+    int countt=1;
+    int lastCircleEndPoint=circles[0].first;
+   // cout<<circles[0].second<<", "<<lastCircleEndPoint<<endl;
+    for(int i=1;i<N;i++)
+    {
+        if(circles[i].second >= lastCircleEndPoint)
+        {
+            countt++;
+            //cout<<circles[i].second<<", "<<circles[i].first<<endl;
+            lastCircleEndPoint=circles[i].first;
+        }
+    }
+    return (N-countt);
+}
+/*int minCircles(vector<pair<int,int> > circles, int N)
+{
+    int countt=1;
+    int lastCircleRadius=circles[0].first;
+    int lastCircleCenter=circles[0].second;
+    for(int i=1;i<N;i++)
+    {
+        int a=circles[i].second;
+        int b=lastCircleCenter;
+        int c=lastCircleRadius;
+        if(a > (b+c) and circles[i].first <= (a-(b+c)))
+        {
+            countt++;
+            lastCircleCenter=circles[i].second;
+            lastCircleRadius=circles[i].first;
+        }
+    }
+    return (N-countt);
+}*/
+int main()
+{
+    int N;
+    cin>>N;
+    vector<pair<int,int> > circles;
+    /*for(int i=0;i<N;i++)
+    {
+        int center,radius;
+        cin>>center>>radius;
+        circles.push_back(make_pair(radius,center));
+    }*/
+    for(int i=0;i<N;i++)
+    {
+        int c,r;
+        cin>>c>>r;
+        circles.push_back(make_pair(c+r,c-r));
+    }
+    sort(circles.begin(),circles.end());
+    //cout<<minCircles(circles,N)<<endl;
+    cout<<minCircles1(circles,N)<<endl;
+}
+
