@@ -1,0 +1,30 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+void mapped(string input,string output)
+{
+    if(input=="")
+    {
+        cout<<output<<endl;
+        return;
+    }
+    int one=input[0]-'0';
+    int two=0;
+    char ch1=64+one;
+    mapped(input.substr(1),output+ch1);
+    if(input.length()>1)
+        two=stoi(input.substr(0,2));
+    if(two<=26 && two>0)
+    {
+        char ch2=64+two;
+        mapped(input.substr(2),output+ch2);
+    }
+
+}
+int main()
+{
+    string input,output;
+    cin>>input;
+    mapped(input,output);
+}
+
