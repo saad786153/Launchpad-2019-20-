@@ -1,0 +1,30 @@
+
+#include<iostream>
+using namespace std;
+int convert(string str,int sidx,int k);
+int convert1(string input,int num)
+{
+    if(input=="")
+        return num;
+    num=num*10+(input[0]-'0');
+    return convert1(input.substr(1),num);
+}
+int main()
+{
+    string input;
+    int sidx=0,k=0;
+    cin>>input;
+      cout<<convert1(input,k);
+}
+
+int convert(string str,int sidx,int k)
+{
+    //int k=0;
+    if(str[sidx]!='\0')
+    {
+        k=k*10+(str[sidx]-'0');
+        return(convert(str,sidx+1,k));
+    }
+    return k;
+}
+
