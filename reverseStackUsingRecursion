@@ -1,0 +1,50 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+void insertTopAtBottom(int val,stack<int> &st)
+{
+        if(st.empty())
+        {
+            st.push(val);
+            return;
+        }
+        int x = st.top();
+        st.pop();
+        insertTopAtBottom(val,st);
+        st.push(x);
+
+
+
+}
+void reverse1(stack<int> &st)
+{
+    if(st.empty())
+    {
+        return;
+    }
+    int val=st.top();
+    st.pop();
+    reverse1(st);
+    insertTopAtBottom(val,st);
+}
+int main()
+{
+    //int arr[]={1,2,3,4,5};
+    int n;
+	cin>>n;
+    stack<int> st;
+	int num;
+    for(int i=0;i<n;i++)
+	{
+		cin>>num;
+		st.push(num);
+	}
+
+    reverse1(st);
+    while(!st.empty())
+    {
+        cout<<st.top()<<endl;
+        st.pop();
+    }
+}
+
