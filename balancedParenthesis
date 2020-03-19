@@ -1,0 +1,57 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+string balancedParenthesis2(string str)
+{
+    stack<char> st;
+    for(int i=0;i<str.length();i++)
+    {
+        if(str[i]=='(' or str[i]=='{' or str[i]=='[')
+            st.push(str[i]);
+        else if(!st.empty())
+        {
+            if(str[i]==')')
+            {
+                if(st.top()=='(')
+                    st.pop();
+                else
+                    return "No";
+            }
+
+            else if(str[i]=='}')
+            {
+                if(st.top()=='{')
+                    st.pop();
+                else
+                    return "No";
+            }
+            else if(str[i]==']')
+            {
+                if(st.top()=='[')
+                    st.pop();
+                else
+                    return "No";
+            }
+        }
+
+        else
+        {
+            if(str[i]==')' or str[i]=='}' or str[i]==']')
+                return "No";
+        }
+
+    }
+    if(st.empty())
+        return "Yes";
+    else
+        return "No";
+}
+
+int main()
+{
+    string str;
+    cin>>str;
+    cout<<balancedParenthesis2(str);
+
+}
+
