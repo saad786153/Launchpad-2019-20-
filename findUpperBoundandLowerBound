@@ -1,0 +1,68 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int firstOcc(int *arr,int key,int n)
+{
+    int start=0,end=n-1,idx=-1;
+    while(start<=end)
+    {
+        int mid=(start+end)/2;
+        if(arr[mid]==key)
+        {
+            idx=mid;
+            end=mid-1;
+            //return idx;
+        }
+
+        else if(arr[mid]>key)
+        {
+            end=mid-1;
+        }
+        else
+        {
+            start=mid+1;
+        }
+    }
+    return idx;
+
+}
+
+int lastOcc(int* arr, int key, int n){
+	int start = 0, end = n-1;
+	int ans = -1;
+	while(start <= end){
+		int mid = start+ ((end - start)/2);
+		if(arr[mid] == key){
+			 ans = mid;
+			 start = mid+1;
+		}
+
+		else if(arr[mid] < key){//right half
+			start = mid+1;
+		}
+		else{ // left half
+			end = mid-1;
+		}
+	}
+	return ans;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++)
+        cin>>arr[i];
+    int key;
+
+    int test;
+    cin>>test;
+    while(test>0)
+    {
+        cin>>key;
+        cout<<firstOcc(arr,key,n)<<" "<<lastOcc(arr,key,n)<<endl;
+        test--;
+    }
+
+}
+
