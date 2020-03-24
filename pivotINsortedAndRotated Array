@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+int pivotLargestInRotated1(int* arr, int start, int end,int n) {
+    while(start<=end)
+    {
+         //case 1
+        if(arr[start]<=arr[end])
+            return end;
+        //case 2
+        int mid=(start+end)/2;
+        int prev=(mid-1+n)%n;//check use???
+        int next=(mid+1)%n;
+        if(arr[mid]>=arr[prev] and arr[next]<=arr[mid])
+            return mid;
+        //case 3--if left side sorted,ie pivot in right side
+        if(arr[start]<=arr[mid])
+            start=mid+1;
+        //case 4--if right side sorted,ie pivot in left side
+        else
+            end=mid-1;
+    }
+    //return -1;
+
+}
+
+
+
+int main(int argc, char const * argv[])
+{
+	int n;
+	cin>>n;
+	int arr[n];
+	for(int i=0;i<n;i++)
+		cin>>arr[i];
+	int idx = pivotLargestInRotated1(arr, 0, n-1,n);
+    cout << idx << endl;
+
+
+	return 0;
+}
