@@ -1,0 +1,44 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int placePivot(int* arr,int start,int end)
+{
+    int mid=(start+end)/2;
+    swap(arr[mid],arr[end]);
+    int pivot=arr[end];//p=4
+    int i=start-1;//i=-1;  elements upto i are <= pivot
+
+    for(int j=start;j<end;j++)
+    {
+        if(arr[j] <= pivot)
+        {
+            i++;
+            swap(arr[j],arr[i]);
+        }
+    }
+	i++;
+	swap(arr[i],arr[end]);
+    return i;//correct index of pivot
+}
+void quickSort(int* arr,int start,int end)
+{
+    if(start>=end)
+        return;
+    int pivotCorrectIndex=placePivot(arr,start,end);
+    quickSort(arr,start,pivotCorrectIndex-1);//left half
+    quickSort(arr,pivotCorrectIndex+1,end);//left half
+}
+int main()
+{
+
+    int n;
+	cin>>n;
+	int arr[n];
+	for(int i=0;i<n;i++)
+		cin>>arr[i];
+    int start=0,end=n-1;
+    quickSort(arr,start,end);
+    for(int i=0;i<n;i++)
+        cout<<arr[i]<<" ";
+}
+
