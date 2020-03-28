@@ -1,0 +1,42 @@
+
+#include<iostream>
+using namespace std;
+string remove(string str,string s,int sidx);
+string remove1(string str,string s)
+{
+    if(str=="")
+    {
+        //cout<<s;
+        return s;
+    }
+    if(str[0]==str[1])
+        s=s+str[0]+"*";
+    else
+        s+=str[0];
+    return remove1(str.substr(1),s);
+}
+int main()
+{
+    string str,s="";
+    int sidx=0;
+    cin>>str;
+    cout<<remove1(str,s);
+    //cout<<remove(str,s,sidx);
+}
+
+string remove(string str,string s,int sidx)
+{
+    if(str[sidx]!='\0')
+       {
+            if(str[sidx]==str[sidx+1])
+            {
+                s=s+str[sidx]+"*";
+            }
+            else
+                s=s+str[sidx];
+            return(remove(str,s,sidx+1));
+       }
+    return s;
+
+}
+
